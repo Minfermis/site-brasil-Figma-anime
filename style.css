@@ -1,0 +1,161 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif, "Barlow";
+}
+:root {
+    /* Background */ 
+    --background-fundo:#000;
+
+    /* fonte color */
+    --fonte-branco: #ffffffc0;
+
+
+
+}
+
+body {
+    background: var(--background-fundo);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    width: 100%;   /* <- ocupa toda a largura da tela */
+    height: 80px;
+    padding: 10px 0;                    /* <- padding horizontal removido */
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px solid #110F0F;
+    background-color: rgba(0, 0, 0, 0.5); /* <- transparência */
+    backdrop-filter: blur(6px);          /* <- efeito vidro fosco */
+
+    & .container {
+        display: flex;
+        width: 100%; /* Faz o container crescer dentro do header */
+        max-width: 1226.25px; /* Limita o tamanho máximo */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        height: 60px;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 284px; /* Evita que o item encolha além de certo limite*/
+
+        & .logo-button {
+            display: flex;
+            padding-right: 4.774px;
+            align-items: center;
+            gap: 48.69px;
+            background: rgba(255, 255, 255, 0.00);
+            gap: 80px;
+
+            & .logo {
+                fill: #fffdfdd0;
+                stroke-width: 0.186px;
+                stroke: #000;
+            }
+
+            & nav {
+                display: flex;                 /* <-- ESSENCIAL para o gap funcionar */
+                width: 580px;
+                height: 12px;
+                background: rgba(255, 255, 255, 0.00);
+                gap: 40px;
+
+                & a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;       /* Alinha o texto no centro do link */
+                    text-decoration: none;         /* TIRA o sublinhado */
+                    color: var(--fonte-branco);                /* Deixa a fonte branca */
+                    font-weight: 800;          /* Deixa mais forte, opcional */
+                    font-size: 14px;              /* Ajusta tamanho */
+                    height: 100%;                 /* Preenche altura do nav */
+                    padding: 0 8px;               /* Espaço interno dos links */
+                    font-family:Barlow;
+                    font-style: normal;
+                }
+            }
+        }
+
+        .search {
+        display: flex;
+        width: 284.25px;
+        padding: 10.5px 15px; /* Espaçamento interno (em cima/baixo e laterais)*/
+        border-radius: 6px; /* Cantos arredondados*/
+        background: rgba(255, 255, 255, 0.22); /* Fundo branco com opacidade */
+        backdrop-filter: blur(4px);  /*Efeito vidro fosco*/
+        -webkit-backdrop-filter: blur(4px); /* Compatibilidade com navegadores WebKit*/
+
+        /* Área interna da busca (ícone + input)*/
+            & .search-area {
+                display: flex;
+                align-items: center;
+                gap: 7.5px; /* Espaço entre o ícone e o input*/
+                width: 100%;
+
+                & icon {
+                    width: 11.25px;
+                    height: 11.25px;
+                    /* Se o SVG estiver preto, isso o deixa branco*/
+                    filter: invert(100%);
+                }
+
+            /* Campo de input de texto*/
+                & input {
+                    background: none; /* Sem fundo*/
+                    border: none; /* Sem borda*/
+                    color: white; /* Texto branco*/
+                    font-size: 14px; /* Tamanho do texto*/
+                    width: 100%; /* Ocupa todo o espaço restante*/
+                    outline: none; /* Remove borda azul ao clicar */
+                }
+            }   
+        }
+    }
+}
+
+main {
+    position: relative;      /* Necessário para posicionar a película */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+
+    & .container {
+        display: flex;
+        gap: 0;
+
+        /* Deixa o container acima da película */
+        position: relative;
+        z-index: 2;
+    }
+
+    & img {
+        width: 25vw;
+        height: 100vh;
+        object-fit: cover;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    /* Película escura com ar de nevoeiro*/
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background: rgba(0, 0, 0, 0.65); 
+        box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.75); 
+        z-index: 1;
+    }
+}
