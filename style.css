@@ -281,6 +281,27 @@ h2 {
     vertical-align: middle;
 }
 
+/* ARQUIVO: style.css */
+
+/* A regra "Guarda-Costas" para nossa cortina */
+
+/* ARQUIVO: style.css */
+
+/* De volta à regra original e funcional da cortina */
+/* ARQUIVO: style.css */
+
+/* Regra para o CONTAINER (o centro do palco) */
+#cortina-magica img {
+  width: 100vw;             /* Começa ocupando a tela inteira */
+  height: auto;
+  max-height: 100vh;
+  object-fit: contain;
+  transition: transform 2.5s ease-in-out;
+  transform-origin: center;
+  transform: scale(500);    /* Estado inicial: absurdamente grande */
+}
+
+
 
 
 /* Esconde a navegação em telas pequenas */
